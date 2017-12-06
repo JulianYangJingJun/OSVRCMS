@@ -24,7 +24,9 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ('name',) # 定义搜索框以哪些字段可以搜索
     #list_filter = ('name','email')  # 传入的需要是列表，设定过滤列表
     fields = ('name','password','email', 'avatars','mobil','ip')
+
     form = UserForm
+
 
 # UserProfile admin list
 class UserProfileAdmin(admin.ModelAdmin):
