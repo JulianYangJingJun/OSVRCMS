@@ -1,0 +1,12 @@
+{% extends layout.get_edit_template_name %}
+{% load i18n %}
+
+{% block body-attrs %} class="standalone"{% endblock body-attrs %}
+
+{% block page-title %}{% trans 'Plugin widgets' %}{% endblock %}
+
+{% block workspaces-wrapper %}{% endblock workspaces-wrapper %}
+
+{% block content %}
+{% include layout.plugin_widgets_template_name_ajax %}
+{% endblock content %}

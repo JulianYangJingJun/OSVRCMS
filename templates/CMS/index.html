@@ -1,0 +1,103 @@
+{% load thumbnail %}
+{% load get_file %}
+{% load get_file_image_aliases %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>精选</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
+
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/index.css" rel="stylesheet" type="text/css" />
+
+
+
+<script src="/static/js/context.js"></script>
+<script src="/static/js/menu.js"></script>
+<script type="text/javascript" src="/static/js/nof5.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/context.standalone.css">
+
+
+
+
+<link rel = "Shortcut Icon" href="/static/images/vrhelper20.ico">
+</head>
+{#<body oncontextmenu="return false">#}
+<!--<body oncontextmenu="return false">-->
+<body>
+     <!-- <div id="header"></div>  -->
+    <div id="middle">
+        <div id="left">
+            {% include 'CMS/nav.html' %}
+        </div>
+        <div id="right">
+			<div id="right_top">
+                {% for key in JXAd %}
+                    {% if forloop.counter == 1 %}<div id ="right_top_ad">
+                        <img src="/media/{{ key.ad_img }}" class="right_top_ad_img">
+                    {% elif forloop.counter == 2 %}<div id="right_top_ad_up_top_ad"  class="right_top_ad_up_top_ad">
+                        <img src="/media/{{ key.ad_img }}" class="right_top_ad_up_top_ad_img">
+                    {% else %}
+                        <div id="right_top_ad_down_top_ad"  class="right_top_ad_down_top_ad">
+                        <img src="/media/{{ key.ad_img }}" class="right_top_ad_down_top_ad_img">
+                    {% endif %}
+                    <span>
+                        <span style="position:absolute;bottom: 0;left: 20px;right: 0;opacity: 1;height: 35px;">{{ key.title }}</span>
+                        <span style="float: right; color: #EE436D;font-size: 1.2em;position: absolute;bottom: 0;right: 26px;opacity: 1;height: 40px;">&hearts; &nbsp; {{ key.score }} </span>
+                    </span>
+                    <a href=" {{ key.ad_url }}"></a>
+                     </div>
+                {% endfor %}
+			</div>
+            <div id="right_middle">
+                <div class="right_middle_command" id="yingshi">
+                    <span>精选影视</span>                    
+                    <hr>
+                   {% for key in YSJx %}
+                    <div class="yingshidiv">
+                        <img src="{{ key.videocover.videocover.url }}">
+                        <span style="float: left;color: #5E5E5E">
+                            {{ key.name }}
+                            <p>主演：{{ key.starring }}</p>
+                        </span>
+                        <span style="float: right;margin-right: 21px;color: #EE436D;">&hearts; &nbsp; {{ key.score }}</span>
+                        <a href="{% GetFileUrl key.videopath_id%}#video" class="x"></a>
+                        <div class="fire"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="right_middle_command" id="youxi">
+                    <span>精选游戏</span>
+                    <hr>
+                    {% for key in YXJx %}
+                    <div>
+                        <img src="{{ key.gamecover.gamecover.url }}">
+                        <span style="float: left;color: #5E5E5E">
+                            {{ key.name }}
+                            <p style="width:157px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;course:hand;">
+                                {{ key.synopsis }}
+                            </p>
+                        </span>                                         
+                        <a href="{% GetFileUrl key.filepath_id%}#game" class="open">打开</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="right_middle_command" id="tupian">
+                    <span>精选图片</span>
+                    <hr>
+                    {% for key in TPJx %}
+                    <div>
+                        <img src="{% GetFileImageAliases key.imageurl_id "imagecover"%}">
+                        <div><b>{{ key.name }} </b></div>
+                        <a href="{% GetFileUrl key.imageurl_id%}#image" target="_blank"></a>
+                    </div>   
+                    {% endfor %}
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

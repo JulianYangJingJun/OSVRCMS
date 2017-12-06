@@ -1,0 +1,76 @@
+{% load thumbnail %}
+{% load get_file %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>影视</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/ys.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/context.js"></script>
+<script src="/static/js/menu.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/context.standalone.css">
+    <link rel = "Shortcut Icon" href="/static/images/vrhelper20.ico">
+<script type="text/javascript">
+$(document).ready(function(){
+   GetGenresVideo(0);
+});
+
+</script>
+
+
+
+</head>
+{#<body oncontextmenu="return false">#}
+{# <div id="header"></div> #}
+<body>
+    <div id="middle" >
+        <div id="left">
+          {% include 'CMS/nav.html' %}
+        </div>
+        <div id="right">
+            <div id="right_top">
+                <img id="right_top_ad_img">
+                <span id="right_top_ad_text"></span>
+                {% for  key in Video %}
+                    {% if forloop.counter == 1 %}
+                        <span id="right_top_ad_one">
+                    {% elif forloop.counter == 2 %}
+                        <span id="right_top_ad_two">
+                    {% else %}
+                         <span id="right_top_ad_thr">
+                    {% endif %}
+                    <img src="{{ key.videocover.videorecommendcover.url }}" tag="{{ key.videocover.videorecommendban.url }}">
+                    <div id="t" style="width:76px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;course:hand;"> {{ key.name }}  </div>
+                    <div id="c">主演：{{ key.starring }}</div>
+                    <div id="f" style="display: none;" tag=" {{ key.name }}  &nbsp; &hearts; &nbsp; {{ key.score }}"></div>
+                    <a href="{% GetFileUrl key.videopath_id %}#video" class="x"></a>
+                    </span>
+                {% endfor %}
+            </div>
+            <div id="right_middle">                
+                <div id="right_middle_top">
+                    <span style="color: #7F7F7F;font-size: 1.6em;float: left;">影视</span>
+                    <span style="color: #7F7F7F;font-size: 1em;float: right;position:absolute;left: 874px; right: 0; top: 6px;;bottom: 0">按类型筛选</span>
+                    <span id="filtrate">
+                        <span id="s"></span>
+                         <ul id="filtrateresults">
+                            {% for key in Genres %}
+                                <li tag="{{ key.name }}" Genres_id="{{ key.pk }}"><a href="javascript:void(0);"> {{ key.name }} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </span>
+                </div>
+                <div id="right_middle" >
+                    <div class="right_middle_command" id="yingshi">
+                        <p id="tips" style="margin-top: 70px"></p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/static/js/nof5.js"></script>

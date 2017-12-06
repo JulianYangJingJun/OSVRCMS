@@ -1,0 +1,87 @@
+.jPicture-container {
+	display:block;
+	position:relative;
+	overflow:hidden
+}
+.jPicture-container a {
+	display:block;
+	color:#fff;
+	text-decoration:none
+}
+.jPicture-container img {
+	border:0
+}
+.jPicture-inner {
+	position:absolute;
+	height:100%;
+	top:0;
+	left:0;
+	overflow:hidden;
+	-webkit-transform:translate3d(0,0,0);
+	-moz-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0)
+}
+.jPicture-part {
+	overflow:hidden
+}
+.jPicture-fade {
+	width:100%
+}
+.jPicture-fade .jPicture-part {
+	position:absolute;
+	display:none
+}
+.jPicture-slide .jPicture-part {
+	float:left
+}
+.jPicture-slide img {
+	display:block
+}
+.jPicture-dot {
+
+	
+	position:absolute;
+	bottom:15px;
+	left:50%
+	
+}
+.jPicture-dot b {
+
+	display:block;
+	float:left;
+	width:30px;
+	height:6px;
+	background:#CCCCCC;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	cursor:pointer;
+	margin:0 5px;
+	-webkit-transition:.4s;
+	-moz-transition:.4s;
+	transition:.4s
+}
+.jPicture-dot b.active {
+	background:#EE436D
+}
+.jPicture-prev,.jPicture-next {
+	display:block;
+	position:absolute;
+	top:50%;
+	width:17px;
+	height:32px;
+	margin-top:-16px;
+	cursor:pointer;
+	background:url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAgCAYAAAB3j6rJAAAB7klEQVR42s3XbUtaYRzH8euhqUetZC1Dy1q1mLhX0hvxjeyBIIMV1YpuHOkiBmNsc60dvGmNQS/KfR/8ghAOF8frXLIHH5D/+d898fjXjMfj/4JL8XPsIiW7is10kSI+ootAuooVZ7XIIjr4hjKMlBXrKMfrIvP4gB4qk88V6yln3tciBVzgBqtReXp2o9xC0ovkcYZbVG35yrlVTT6pRXI4QYh1xayUG6o257pIgPfo4wVMHKrpq0cw7SJZHGKATcViU+1AvbJxF8lgHyNswzjaVq999bYvosR3uMOOYs7U6069M7ZF0niLe7yCSZJ63mtGOmqRObTwBzUYT2qa0cLc5CIpNPEXdRjP6prV1Gxj9OENHvAaZhY060GzU4/vig5CLM1qEc0KNTt4GvwkPpeJnPf04TI+4xrPfC2h3teatRz19S3hC66gAyc56nmlGSXbC20FX9GFDhx36tVV7xXrm1XK+I5LLLguoR6X6lmO+6NXwQ+0oWsrPtW21asy7Rmwhp84RyHuEqo5V48118Ooil84RR5xrrpT1VaTOhU3EOLYdm1JTrmhao3NNNfWkeXaCpSjq87P34ktDHEQcW1l9WyoXK9/sF5ihL2JAyej2Eg5Jg6Xa+s3WkhJS7GprjrXA6eBrDQUMx4X8e8fwj0L7GH1LqcAAAAASUVORK5CYII=) no-repeat
+}
+.jPicture-prev {
+	margin-left:10px
+}
+.jPicture-next {
+	right:0;
+	margin-right:10px;
+	background-position:-17px 0
+}
+.jPicture-pointerevents-none {
+	pointer-events:none
+}

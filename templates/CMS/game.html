@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>游戏</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/context.js"></script>
+<script src="/static/js/menu.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/context.standalone.css">
+<link rel = "Shortcut Icon" href="/static/images/vrhelper20.ico">
+<style type="text/css">
+#right_top{margin:0 57px 0px 25px;border-bottom:solid 1px #EDEDED;line-height: 25px;height: 40px}
+#right_top ul {list-style:none;text-align: left; }
+#right_top ul li{float: left; margin:0 70px 0 -40px;height: 38px;width:80px; text-align: center}
+.right_top_on{border-bottom:solid 2px #EE436D;}
+#right_middle{margin: 12px 0 0 25px;}
+#right_middle ul li{height: 230px; width: 259px;border: solid 1px #F2F2F2;float: left;list-style: none;margin: 0 50px 15px -39px;border-radius: 5px;box-shadow: 3px 3px 20px #F2F2F2; position: relative}
+#right_middle #title{position: absolute;left: 8px;    right: 0;    bottom: 0;    top: 160px;color: #5E5E5E;}
+#right_middle #f_title{position: absolute;left: 8px;    right: 0;    bottom: 0;    top: 190px;color: #9A9A9A;    font-size: 14px;}
+#right_middle #open {    position: absolute;    left: 204px;    right: 0;    bottom: 50px;    top: 160px;    border: 1px solid #EE436D;
+    text-decoration: none;    color: #EE436D;    width: 40px;    font-size: 12px;    text-align: center;}
+#right_middle ul li img { width: 259px; height: 146px;  border-radius: 5px 5px 0 0;margin: 0 0 0 0;}
+
+</style>
+<script src="/static/js/jPicture.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    GetGenresGame(0,"is_recommend");
+    $('#right_top ul li').each(function(){
+        var on = $(this).attr("class");
+        if(on=="right_top_on"){
+             $(this).find('a').css('color','#EE436D');
+        }
+        $("#right_top ul li").hover(function(){
+            $(this).css('border-bottom','solid 2px #EE436D');
+            $(this).find('a').css('color','#EE436D');
+        },function(){
+            var on = $(this).attr("class");
+            $(this).find('a').removeAttr('style');
+            if(on=="right_top_on") {
+               $(this).css('border-bottom','solid 2px #EE436D');
+               $(this).find('a').css('color','#EE436D');
+            }else{
+               $(this).css('border-bottom','none');
+               $(this).find('a').removeAttr('style');
+            }
+        });
+        $(this).click(function(){
+            var Genres_id  = $(this).attr("Genres_id");
+            var status  = $(this).attr("tag");
+
+            GetGenresGame(Genres_id,status);
+            $('#right_top ul li').removeClass('right_top_on');
+            $('#right_top ul li').removeAttr('style');
+            $('#right_top ul li a').removeAttr('style');
+            $(this).attr('class','right_top_on');
+        });
+    });
+});
+function GetGenresGame(Genres_id,status) {
+        $.ajax({
+            url:'/V1/GetGenresGame/?Genres_id=0&'+status+'=1',
+            type:'GET',   //GET
+            async:true,    //或false,是否异步
+            //data:{Genres_id:Genres_id,is_hottest:status},
+            timeout:3000,       //超时时间
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            beforeSend:function(XMLHttpRequest){
+                 $("#right_middle #tips").html("<img src='/static/images/loading.gif' style='width: 36px;height: 41px'/> <font color='#EC4069'> 数据载入中... </font>"); //在后台返回success之前显示loading图标
+            },
+            success:function(data,textStatus,jqXHR){
+                 if(data == ""){
+                     $("#right_middle ul").html("<br><BR><font color='#EC4069'> 暂无数据 </font>");
+                 }else {
+                      var html = "";
+                      for (var key in data) {
+                          html = html+"<li>\n" +
+                                      "<img src=" + data[key]['Game_Cover'] +">\n" +
+                                      "<span id=\"title\">" + data[key]['name'] +"</span>\n" +
+                                      "<span id=\"f_title\" style=\"width:157px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;course:hand;\">" +
+                                      "" + data[key]['synopsis'] +"</span>\n" +
+                                      "<a href=" + data[key]['File_URL'] + "#game id=\"open\">打开</a>\n" +
+                                      "</li>"
+
+                      }
+                      $("#right_middle ul").html(html)
+                  }
+            },
+            error:function(xhr,textStatus){
+
+                if(textStatus=='timeout'){
+                    $("#right_middle ul").html("<br><BR><font color='#EC4069'> 数据载入超时 </font>");
+                }
+                else{
+                    $("#right_middle ul").html("<br><BR><font color='#EC4069'> 数据载入错误 </font>");
+                }
+            },
+            complete:function(){
+                //console.log('结束')
+            }
+        });
+    }
+
+</script>
+</head>
+{#<body oncontextmenu="return false">#}
+<body>
+    <!-- <div id="header"></div> -->
+    <div id="middle" >
+        <div id="left">
+            {% include 'CMS/nav.html' %}
+        </div>
+        <div id="right">
+            <div id="right_top">
+              <ul>
+                <li Genres_id=0 tag="is_recommend" class="right_top_on"><a href="javascript:void(0);">精选推荐</a></li>
+                <li Genres_id=0 tag="all"><a href="javascript:void(0);">全部分类</a></li>
+                <li Genres_id=0 tag="is_latest"><a href="javascript:void(0)">最新游戏</a></li>
+                <li Genres_id=0 tag="is_hottest"><a href="javascript:void(0)">最热游戏</a></li>
+              </ul>
+            </div>
+            <div id="right_middle">
+                <ul>
+                    <p id="tips" style="margin-top: 70px"></p>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/static/js/nof5.js"></script>

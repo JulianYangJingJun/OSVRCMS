@@ -1,0 +1,74 @@
+    body{
+        margin:0 0 0 0;
+        font-family: "Microsoft YaHei" ! important;
+        width:100%;
+        height:100%;
+        text-align: center;
+    }   
+    #header{
+        width: 1440px;
+        height:100px;
+        /*border: 1px solid #000;*/
+        margin:0 auto;
+        min-width: 1200px;
+		background:url(../images/header.jpg)
+    }
+    #middle{
+        width: 1440px;
+        height:auto;
+        /*border: 1px solid #000;*/
+        margin:0 auto;
+        min-width: 1440px;
+    }
+
+    #left{
+        width: 260px;
+        height: 900px;
+        /*border:1px solid #000000;*/
+        float: left;
+        text-align: left;
+        background-color: #F1F6F9;
+        border-right: 1px solid #EDEDED;
+
+    }
+
+    #right{
+        width: 1176px;
+        height: 900px;
+        border: 1px solid #000000;
+        text-align: left;
+        float: right;
+    }
+
+
+    #middle-left-menu-top{color:#C4C5C7; margin-top:20px; font-size:1.2em; text-align:left; margin-left:50px}
+    #middle-left-menu{color:#8A8A8A; margin-top:2px; font-size:1.4em; text-align:left; margin-left:0px; height:100%}
+    #middle ul{ padding-left:0;}
+    #middle ul li {list-style:none; line-height:30px; padding-left:0;border-left: solid 6px #F7F7F7;margin-top: 34px;}
+    #middle ul li span{margin-left: 64px}
+    #middle ul li span a{margin-left: 64px;}
+    #middle ul li span a:link{text-decoration: none; color:#8A8A8A; font-size: 1em; font-family: 微软雅黑;vertical-align:top;position:relative;top:1px;}
+    #middle ul li span a:visited{ color:#8A8A8A;vertical-align:top;position:relative;top:1px;}
+    #middle ul li span a:hover{text-decoration: derline; color:#8A8A8A; font-size: 1m;vertical-align:top;position:relative;top:1px;}
+    #middle ul li span a:active{text-decoration: derline; color: #8A8A8A;vertical-align:top;position:relative;top:1px;}
+
+/*    .middle-left-menu-li{list-style:none; line-height:60px ; padding-left:0;border-left: solid 6px #F7F7F7;}
+    .middle-left-menu-li-over{color: #EE436D}
+
+*/
+ 
+
+	#right::-webkit-scrollbar {/*滚动条整体样式*/
+			width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+			height: 1px;
+		}
+	#right::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+			border-radius: 10px;
+			 -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			background: #535353;
+		}
+	#right::-webkit-scrollbar-track {/*滚动条里面轨道*/
+			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			border-radius: 10px;
+			background: #EDEDED;
+		}

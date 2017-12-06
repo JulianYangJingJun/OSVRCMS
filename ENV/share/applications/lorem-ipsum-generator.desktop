@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=0.1
+Encoding=UTF-8
+Name=Lorem Ipsum Generator
+Type=Application
+Terminal=false
+Icon[en]=python
+Name[en]=Lorem Ipsum Generator
+Exec=lorem-ipsum-generator
+Icon=python
+Category=GNOME;GTK;Utility
+GenericName[en_AU]=
+Comment[en_AU]=Generates random lorem ipsum text

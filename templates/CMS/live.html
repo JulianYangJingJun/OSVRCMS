@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<link href="/static/css/main.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/static/css/jPicture.min.css">
+    <script src="/static/js/context.js"></script>
+<script src="/static/js/menu.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/context.standalone.css">
+    <link rel = "Shortcut Icon" href="/static/images/vrhelper20.ico">
+<style type="text/css">
+#right_top{margin:15px 57px 0px 25px;border-bottom:solid 1px #EDEDED;line-height: 25px;height: 40px;} 
+#right_top #right_top_left{float: left;font-weight:bold;font-size: 1.3em;}
+#right_top #right_top_right{float: right;color: #D1CCC6;font-size: 1em;}
+ 
+#right_middle{margin: 12px 0 0 25px;}
+#right_middle ul li{list-style: none;float: left;width: 211px;height:265px;border:  1px solid #f0f0f0;margin: 0 47px 28px -42px;position: relative;}
+#right_middle ul li img{width: 211px;height: 212px;}
+#right_middle #icon{background: url("/static/images/zb.png");width: 36px;height: 36px;height: 36px; top: -10px;left: 164px;position: absolute;}
+
+#right_middle #zblist #title{float: left;margin: 3px 0 0 6px;font-size: 14px;color:#EC4068;max-width: 155px;width: 155px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;  }
+
+#right_middle #zblist #number{float: right;margin: 3px 6px 0 0;font-size: 14px;color: #EC4068;text-align: right;}
+
+
+#right_middle #zblist #dw{font-size: 12px;color: #949ba1;position: absolute;left: 20px;right: 0;bottom: 0;top: 245px}
+#right_middle #zblist #dwicon{position: absolute;left: 5px;right: 0;bottom: 0;top: 245px;background: url('images/common/dw.png') no-repeat;width: 13px;height: 17px}
+#right_middle #zblist #status{font-size: 12px;color: #949ba1;position: absolute;left: 180px;right: 0;bottom: 0;top: 245px}
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //  $("#right").unbind("scroll").bind("scroll", function(e){
+        //     var mLis = 90;
+        //     var sum = this.scrollHeight;
+        //     // alert($(this).height());
+        //     if (sum <= $(this).scrollTop() + $(this).height()) {
+        //         $("#right").append($("#zblist").clone());
+        //     }
+        // });
+    });
+
+
+</script>
+
+</head>
+<body oncontextmenu="return false">
+
+
+    <!-- <div id="header"></div> -->
+    <div id="middle" >
+        <div id="left">
+            {% include 'CMS/nav.html' %}
+        </div>
+        <div id="right"><!-- overflow:auto; -->
+            <div id="right_top">
+                 <div id="right_top_left">热门直播</div>
+                 <div id="right_top_right">+更多</div>
+            </div>
+            <div id="right_middle">
+            <ul id="zblist">
+                <li>
+                    <img src="/static/images/zb/111.jpg">
+                    <span id="icon"></span>
+                    <span id="title">吃土的少女</span>
+                    <span id="number">1</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/222.jpg">
+                    <span id="icon"></span>
+                    <span id="title">碧海听潮声</span>
+                    <span id="number">20</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img  src="/static/images/zb/333.jpg">
+                    <span id="icon"></span>
+                    <span id="title">小腬腬</span>
+                    <span id="number">222</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/444.jpg">
+                    <span id="icon"></span>
+                    <span id="title">中国人</span>
+                    <span id="number">110</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/555.jpg">
+                    <span id="icon"></span>
+                    <span id="title">美国人</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img  src="/static/images/zb/111.jpg">
+                    <span id="icon"></span>
+                    <span id="title">尬歌</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img  src="/static/images/zb/222.jpg">
+                    <span id="icon"></span>
+                    <span id="title">尬歌</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/333.jpg">
+                    <span id="icon"></span>
+                    <span id="title">尬歌</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/444.jpg">
+                    <span id="icon"></span>
+                    <span id="title">尬歌</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span>
+                    <span id="dwicon"></span>
+                    <span id="status">在看</span>
+                </li>
+                <li>
+                    <img src="/static/images/zb/555.jpg">
+                    <span id="icon"></span>                
+                    <span id="title">尬歌</span>
+                    <span id="number">2228</span>
+                    <span id="dw">浙江 杭州</span> 
+                    <span id="dwicon"></span>                    
+                    <span id="status">在看</span>   
+                </li>
+            </ul> 
+            </div>  
+        </div>      
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/static/js/nof5.js"></script>

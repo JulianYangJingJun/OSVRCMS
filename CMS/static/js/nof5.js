@@ -1,0 +1,1 @@
+document.onkeydown=function(a){a=window.event||a;if(a.altKey&&(37==a.keyCode||39==a.keyCode)||8==a.keyCode||116==a.keyCode||a.ctrlKey&&78==a.keyCode||a.shiftKey&&121==a.keyCode||122==a.keyCode)return!1};

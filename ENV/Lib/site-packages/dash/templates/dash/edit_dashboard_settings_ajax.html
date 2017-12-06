@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="generic-content-wrapper">
+    <div class="wrapper-bg"></div>
+    <div class="hero-unit-small">
+        <h2 class="content-title">{% trans "Edit dashboard settings" %}</h2>
+    </div>
+    <div class="content-body">
+        <form method="post" action="{% url 'dash.edit_dashboard_settings' %}" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <ul class="content-listing generic-form">
+                {% include layout.form_snippet_template_name %}
+                <li class="buttons control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-primary">{% trans "Edit" %}</button>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

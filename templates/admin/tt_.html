@@ -1,0 +1,63 @@
+{% extends "admin/base_site.html" %}
+{% load staticfiles %}
+    <!-- code to include the highcharts and jQuery libraries goes here -->
+    <!-- load_charts filter takes a comma-separated list of id's where -->
+    <!-- the charts need to be rendered to                             -->
+
+
+{% load i18n %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="../../../">{% trans "Home" %}</a> &rsaquo;
+    <a href="../../">
+        statistics
+    </a>
+    &rsaquo;
+    装机量sadf
+</div>
+{% endblock %}
+{% block content %}
+<div id="content" class="colM row-fluid">
+
+
+                <h2 class="content-title">Custom view</h2>
+
+
+  <table id="result_list" class="table table-striped table-bordered table-hover table-condensed">
+    <thead>
+    <tr>
+      <th>Information on example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+
+
+        <!--[if lte IE 8]>
+            <script src="{% static 'js/excanvas.js' %}"></script>
+        <![endif]-->
+        <canvas id="myChart" width="500" height="400"></canvas>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        <script type="text/javascript">
+            $.get('{% url "line_chart_json" %}', function(data) {
+                var ctx = $("#myChart").get(0).getContext("2d");
+                new Chart(ctx, {
+                    type: 'line', data: data
+                });
+            });
+        </script>
+
+
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+            </div>
+{% endblock %}

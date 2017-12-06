@@ -1,0 +1,201 @@
+{% load thumbnail %}
+{% load get_file %}
+{% load get_file_image_aliases %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+    <script src="/static/js/context.js"></script>
+<script src="/static/js/menu.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/context.standalone.css">
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/static/css/jPicture.min.css">
+    <link rel = "Shortcut Icon" href="/static/images/vrhelper20.ico">
+<style type="text/css">
+#right_top{margin:0 57px 0px 25px;border-bottom:solid 1px #EDEDED;line-height: 25px;height: 40px} 
+#right_top ul {list-style:none;text-align: left; }
+#right_top ul li{float: left; margin:0 70px 0 -40px;height: 38px;width:100px; text-align: center}
+.right_top_on{border-bottom:solid 2px #EE436D;}
+#right_middle{margin: 12px 0 0 25px;}
+#imgBox{ width: 1084px; height: 400px;}
+#tupian ul li{float: left;
+    border: 0px solid #F2F2F2;
+    display: block;
+    width: 350px;
+    height: 190px;
+    margin: 23px 54px -7px -40px;
+    box-shadow: 3px 3px 20px #F2F2F2;
+    position: relative}
+#tupian  div {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000,endColorstr=#B2000000);
+    line-height: 20px;
+    transition: .2s;
+    font-size: 15px;
+    border-radius: 0;
+    left: 0px;
+}
+#tupian  b {
+    float: left;
+    margin: 9px 4px 0 4px;
+    color: #ffffff
+}
+#tupian img {
+    width: 350px;
+    height: 190px;
+    border-radius: 0;
+}
+#tupian a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    height: 100%;
+}
+#tupian div:hover {
+    transition: 0.3s ease-in-out;
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+}
+</style>
+<script src="/static/js/jPicture.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    GetGenresImage(0,1);
+    $('#right_top ul li').each(function(){         
+        var on = $(this).attr("class");
+        if(on=="right_top_on"){
+             $(this).find('a').css('color','#EE436D');            
+        }
+        $("#right_top ul li").hover(function(){             
+            $(this).css('border-bottom','solid 2px #EE436D');       
+            $(this).find('a').css('color','#EE436D');
+        },function(){           
+            var on = $(this).attr("class");
+            $(this).find('a').removeAttr('style');
+            if(on=="right_top_on") {
+               $(this).css('border-bottom','solid 2px #EE436D');   
+               $(this).find('a').css('color','#EE436D');              
+            }else{
+               $(this).css('border-bottom','none');
+               $(this).find('a').removeAttr('style'); 
+            }
+        });
+        $(this).click(function(){
+            var Genres_id  = $(this).attr("Genres_id");
+            var is_recommend  = $(this).attr("is_recommend");
+            GetGenresImage(Genres_id,is_recommend);
+            $('#right_top ul li').removeClass('right_top_on');
+            $('#right_top ul li').removeAttr('style');
+            $('#right_top ul li a').removeAttr('style');
+            $(this).attr('class','right_top_on');
+        });
+    });
+});
+jPicture("#imgBox", {
+    type: "slide",
+    autoplay: 5000
+});
+function GetGenresImage(Genres_id,is_recommend) {
+        $.ajax({
+            url:'/V1/GetGenresImage/',
+            type:'GET',   //GET
+            async:true,    //或false,是否异步
+            data:{
+                Genres_id:Genres_id,
+                is_recommend:is_recommend
+            },
+            timeout:3000,       //超时时间
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            beforeSend:function(XMLHttpRequest){
+                 $("#tupian #tips").html("<img src='/static/images/loading.gif' style='width: 36px;height: 41px'/> <font color='#EC4069'> 数据载入中... </font>"); //在后台返回success之前显示loading图标
+            },
+            success:function(data,textStatus,jqXHR){
+                 if(data == ""){
+                     $("#tupian ul").html("<br><BR><font color='#EC4069'> 暂无数据 </font>");
+                 }else {
+                      var html = "";
+                      for (var key in data) {
+                          html = html + " <li>\n" +
+                              "<img src=" + data[key]['Image_Cover'] + ">\n" +
+                              "<div><b>" +
+                              "" + data[key]['name'] + "" +
+                              "</b></div>\n" +
+                              "<a href=" + data[key]['File_URL'] + "#image target=_blank></a>\n" +
+                              "</li>"
+                      }
+                      $("#tupian ul").html(html)
+                  }
+            },
+            error:function(xhr,textStatus){
+
+                if(textStatus=='timeout'){
+                    //处理超时的逻辑
+                    $("#tupian ul").html("<br><BR><font color='#EC4069'> 数据载入超时 </font>");
+                }
+                else{
+                    //其他错误的逻辑
+                    $("#tupian ul").html("<br><BR><font color='#EC4069'> 数据载入错误 </font>");
+                }
+            },
+            complete:function(){
+                //console.log('结束')
+                //  $(".right_middle_command").html("<br><BR><font color='#EC4069'> 数据载入失22败 </font>");
+            }
+        });
+    }
+
+
+</script>
+</head>
+{#<body oncontextmenu="return false">#}
+<body>
+    <!-- <div id="header"></div> -->
+    <div id="middle" >
+        <div id="left">
+            {% include 'CMS/nav.html' %}
+        </div>
+        <div id="right"><!-- overflow:auto; -->
+            <div id="right_top">
+              <ul>
+                  <li Genres_id=0 is_recommend=1 class="right_top_on"><a href="javascript:void(0);">精选推荐</a></li>
+                  <li Genres_id=0 is_recommend=0><a href="javascript:void(0);">全部分类</a></li>
+                  {% for key in ImageGenres %}
+                      <li tag="{{ key.name }}" Genres_id="{{ key.pk }}" is_recommend=0><a href="javascript:void(0);">{{ key.name }}</a></li>
+                  {% endfor %}
+              </ul>
+            </div>
+            <div id="right_middle">
+              <div id="imgBox">
+                <div>
+                    {% for key in Image %}
+                        <div>
+                            <a href="{% GetFileUrl key.imageurl_id%}#image" target=_blank>
+                                <img src="{% GetFileImageAliases key.imageurl_id "imageban"%}">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+              </div>
+
+              <div id="tupian" style="margin: -30px 0 0 0">
+                <ul><p id="tips" style="margin-top: 70px"></p></ul>
+              </div>
+
+
+            </div>  
+        </div>      
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="/static/js/nof5.js"></script>

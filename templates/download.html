@@ -1,0 +1,240 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv=âContent-Typeâ content=âtext/html; charset=UTF-8>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<base href="http://osvr.lianluo.com/osvr/pages/">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" />
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VR客户端下载</title>
+<link href="css/index.css" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+function loginDeveloperRegister(){
+	$.ajax({
+		url : "../user/checkLogin",
+		type : "POST",
+		async : true,
+		processData : false, // 告诉jQuery不要去处理发送的数据
+		contentType : false, // 告诉jQuery不要去设置Content-Type请求头
+		dataType : "json",
+		error : function(e) {
+		},
+		success : function(result) {
+			if(result["retCode"]=="00000"){
+				location.href="../pages/developerRegister.jsp";
+			}else{
+				showid('smallLay');
+			}
+		}
+	});
+	
+}
+
+</script>
+</head>
+
+<body>
+	
+ 
+
+
+	<nav class="navbar navbar-default container" role="navigation">
+		   
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSVR首页</title>
+
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.jsp"><img src="images/logo.png" /></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-center">
+      <li ><a href="index.jsp">首页<em></em></a></li>
+        <li ><a href="developer.jsp">开发者<em></em></a></li>
+        <li><a href="vrInstitutes.jsp">VR研究<em></em></a></li>
+        <li><a href="join.jsp">加入<em></em></a></li>
+        <li><a href="http://osvr-dev.lianluo.com/V1/download/">VR客户端<em></em></a></li>
+  <!--      <li><a href="http://osvr-bbs.lianluo.com/?forum-14.htm">开发者论坛<em></em></li>-->
+      </ul>
+     
+<script type="text/javascript">
+var isView=0;
+var count=0;
+$(function(){
+	checklogin();
+	});
+	function openMessage() {
+		$("#messageCount").hide();
+		parent.location.href = "../user/userCenter?isView=1";
+	}
+</script>
+
+<input id="userName" value="" type="hidden">
+
+ <ul class="nav navbar-nav navbar-right" id="centerHeard" style="display:none">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="userNameA"></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="menu-person"><a href="../user/userCenter">个人主页</a></li>
+            <li class="menu-upload" id="updateIoc"><a href="uploadVideo.jsp">我要上传</a></li>
+            <li class="menu-signout"><a href="../user/logout">退出登录</a></li>
+          </ul>
+      </li>
+        <li class="dropdown">
+          <a href="" onclick="openMessage()" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope" id="loginMessageSapn"></span><sup class="badge badge-important" id="messageCount"></sup></a>
+        </li>
+	  </ul>
+
+
+		<ul class="nav navbar-nav navbar-right navbar-login" id="loginHeard" style="display:none">
+			<li><a href="javascript:" onclick="showid('smallLay');">登录</a></li>
+			<li><a href="register.jsp">注册</a></li>
+		</ul>
+
+  </div>
+  </div>
+  <div id="smallLay" style="display:none;">
+<h3>登录</h3>
+<hr>
+<form>
+<div class="form-group">
+  </div>
+  <div class="form-group">
+    <input id="account" name="account" type="text" class="form-control" placeholder="手机号/邮箱">
+  </div>
+  <div class="form-group">
+   
+    <input id="password" name="password" type="password" class="form-control" placeholder="密码">
+  </div>
+
+<div id="loginButton" class="from-groun-btn">  <button id="login" type="button" class="btn btn-warning">登录</button>
+  <button type="button" class="btn btn-default" id="cancel">取消</button></div>
+</form>
+<ul>
+<li class="red"><a href="findPassword.jsp" class="color-red">忘记密码？</a>|</li>
+<li><a href="register.jsp" class="color-red">注册新账号</a></li>
+</ul>
+<a id="close"><img src="images/close.png"></a>
+</div>
+</body>
+</html>
+
+
+  
+
+	</nav>
+ 
+
+	<div style="background: url(images/vrbg.jpg) center top no-repeat;min-height: 400px; " class="container"> 
+  
+	 	<div class="banner-text" style="width:60%">
+			<h1 style=" margin-bottom:30px">VR助手1.0</h1> 
+			<p style="color:#4D4D4D; margin-bottom:10px;"> 联络VR助手是国内基于Windows端口的VR资源整合应用，致力于</p>
+			<p style="color:#4D4D4D; margin-bottom:10px;">解决行业面临的硬件分立等问题。集硬件更新、软件发行、社区、商</p>
+			<p style="color:#4D4D4D; margin-bottom:30px">城、资讯、为一体的应用</p>
+
+
+            <a href="{{ DOWNLOAD_PATH }}"
+                style="background-color:rgba(238, 125, 28, 0); color:#FFFFFF; font-size:24px; padding: 12px 0;">
+                 <p style="color:#4D4D4D; margin-bottom:30px; background:url(images/down.jpg); width:240px; height:60px"></p></a>
+            <p style="color:#4D4D4D; margin-bottom:30px"><img src="images/osvrico.jpg"  alt=""/></p>
+		</div>
+	 
+	</div>
+
+ <div style="background: url(images/vrd_r2_c2.jpg) center top no-repeat;min-height: 380px; " class="container"> 
+        <div class="banner-text" style="width:100%;padding: 50px 20px 10px 54%;">
+             <h1 style=" margin-bottom:30px; font-size:18px; color:#ee7d1c">VR商城与产品俱乐部</h1>              
+             <p style="color:#4D4D4D; margin-bottom:10px;">用户可根据自己需要接入自己的VR设备，以自己希望的方式体验</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">VR。可通过助手进入VR商城了解以及购买各类VR设备与VR游戏</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">等资源。</p>
+		</div>
+ </div>
+
+ <div style="background: url(images/vrd_r3_c2.jpg) center top no-repeat;min-height: 350px; " class="container"> 
+         <div class="banner-text" style="width:100%;padding: 20px 20px 10px 10%;">
+             <h1 style=" margin-bottom:30px; font-size:18px; color:#ee7d1c">技术支持与资源分享</h1>              
+             <p style="color:#4D4D4D; margin-bottom:10px;">用户可根据自己需要接入自己的VR设备，以自己希望的方式体验</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">或者下载VR视频、游戏等资源。如遇上问题也可通过助手寻求技术支</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">持与帮助。</p>
+		</div>
+</div>
+ <div style="background: url(images/vrd_r4_c2.jpg) center top no-repeat;min-height: 300px; " class="container"> 
+         <div class="banner-text" style="width:100%;padding: 20px 20px 10px 54%;">
+             <h1 style=" margin-bottom:30px; font-size:18px; color:#ee7d1c">平台入口</h1>              
+             <p style="color:#4D4D4D; margin-bottom:10px;">提供SteamVR平台的入口，用户可一键切入平台。Steam平台目</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">前是一款全球最大的综合性数字发行平台。玩家可以在该平台购买、下</p>
+            <p style="color:#4D4D4D; margin-bottom:10px;">载、讨论、上传和分享游戏和软件。</p>
+		</div>
+</div>
+
+<footer>
+	<div class="container">
+		<a href=""><img src="images/bottom-logo.png"></a>
+		<ul class="list-inline">
+			<li><a href=""><img src="images/icon1.png"></a></li>
+			<li><a href=""><img src="images/icon2.png"></a></li>
+			<li><a href=""><img src="images/icon3.png"></a></li>
+			<li><a href=""><img src="images/icon4.png"></a></li>
+		</ul>
+		<dl>
+			<dt>
+				<a href="javascript:" >关于联络互动</a><a id="developerTechnical" style="display:none;" href="mailto:OSVR.lianluo.com?subject=意见反馈&body=请填写意见" >技术支持</a>
+				<a href="javascript:" style="color:dimgray" id="technical" >技术支持</a>
+			</dt>
+			<dd>Copyright&copy;2016-2018 OSVR.lianluo.All Rights Reserved</dd>
+		</dl>
+		<ul class="list-unstyled">
+			<li>@北京数字天域科技有限责任公司 京ICP备13016972号-4 京公网安备 11010502024419</li>
+			<li>地址：北京市海淀区西北旺镇冷泉东北街296号楼5层1509室 电话：010-65918368</li>
+		</ul>
+	</div>
+</footer>
+
+</body>
+</html>
+
