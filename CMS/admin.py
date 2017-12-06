@@ -5,8 +5,6 @@
 # @Author  : Julian Yang (aqkt_436@163.com)
 # @Link    : http://www.abbstyle.com
 
-
-
 from django.contrib import admin
 from CMS.models import *
 from django import forms
@@ -63,22 +61,6 @@ class UserProfileAdmin(admin.ModelAdmin):
     fields = ('credentialName', 'credentialType', 'credentialNum', 'credentialPhoto', 'credentialPhotoBack', 'adopt')
     form = UserProfileForm
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Device admin list
 class DeviceAdmin(admin.ModelAdmin):
     formfield_overrides = {models.ImageField: {'widget': ImageWidget}}
@@ -99,10 +81,6 @@ class FittingsAdmin(admin.ModelAdmin):
     list_display = ('name','enname', 'created_at','updated_at')
     search_fields = ('name','ennname')
 
-
-
-
-
 # Game admin list
 class GameAdmin(admin.ModelAdmin):
     sortable = 'sorting'
@@ -113,21 +91,6 @@ class GameAdmin(admin.ModelAdmin):
     list_editable = ('name','score','viewingcount', 'downloadcount','sorting','is_recommend','is_latest','is_hottest')
     list_filter = ('shortname', 'is_recommend', 'is_latest', 'is_hottest',)
     form = GameForm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # VideoGenres admin list
 class VideoGenresAamin(admin.ModelAdmin):
@@ -148,20 +111,10 @@ class VideoAdmin(admin.ModelAdmin):
     formfield_overrides = {models.ImageField: {'widget': ImageWidget}}
     search_fields = ('name', 'shortname')
     list_editable = ('name','is_recommend','score', 'is_latest', 'is_hottest', 'sorting','viewingcount', 'downloadcount',)
-
-
-
-
-
     form = VideoFrom
     list_filter = ('shortname','Genres','Sort','is_recommend', 'is_latest', 'is_hottest',)
     #fields = ('name', 'shortname')
     # form = GameForm
-
-
-
-
-
 
 # VideoGenres admin list
 class ImageGenresAamin(admin.ModelAdmin):
@@ -185,25 +138,6 @@ class ImageAdmin(admin.ModelAdmin):
     # list_editable = ('name',)
     form = ImageForm
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #AppGenres admin list
 class AppGenresAdmin(admin.ModelAdmin):
     list_display = ('name', 'shortname', 'created_at','updated_at')
@@ -221,28 +155,6 @@ class AppAdmin(admin.ModelAdmin):
     list_filter = ('shortname','is_recommend', 'is_latest', 'is_hottest',)
     #fields = ('name', 'shortname')
     #form = GameForm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class TopicAdmin(admin.ModelAdmin):
     list_display = ('id','from_uid_id', 'from_game_id','is_top','content','created_at', 'updated_at')
     search_fields = ('content',)
@@ -295,9 +207,6 @@ class FirmWareUpdateMessageAdmin(admin.ModelAdmin):
 # class AppHeartAdmin(admin.ModelAdmin):
 #     list_display = ('id','APPIP')
 #     search_fields = ('APPIP',)
-
-
-
 def expiration(obj):
     import datetime
     now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -316,13 +225,8 @@ class CaptchaAdmin(admin.ModelAdmin):
     # list_display_links = ('challenge', 'response')
     # list_display = (upper_case_name,)
     date_hierarchy = 'expiration'
-
-
 from captcha.models import CaptchaStore
 admin.site.register(CaptchaStore,CaptchaAdmin)
-
-
-
 
 # register admin template
 # User master
@@ -341,9 +245,6 @@ admin.site.register(Video,VideoAdmin)
 admin.site.register(ImageGenres,ImageGenresAamin)
 admin.site.register(ImageSort,ImageSortAdmin)
 admin.site.register(Image,ImageAdmin)
-
-
-
 #App master
 admin.site.register(AppGenres,AppGenresAdmin)
 admin.site.register(App,AppAdmin)
