@@ -1,4 +1,4 @@
-certifi==2017.7.27.1
+certifi==2017.7.27.1<BR>
 chardet==3.0.4
 cmsplugin-filer==1.1.3
 Django==1.10.7
