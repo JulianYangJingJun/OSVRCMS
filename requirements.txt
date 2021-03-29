@@ -44,7 +44,7 @@ olefile==0.44
 ordereddict==1.1
 pif==0.8.2
 Pillow==4.3.0
-Pygments==2.2.0
+Pygments==2.7.4
 pytz==2017.2
 requests==2.18.4
 six==1.11.0
