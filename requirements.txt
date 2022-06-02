@@ -35,7 +35,7 @@ djangocms-video==2.0.4
 djangorestframework==3.7.1
 easy-thumbnails==2.3
 feedparser==5.2.1
-html5lib==0.9999999
+html5lib==0.99999999
 idna==2.6
 lipsum==0.1.2
 lorem-ipsum-generator==0.3
